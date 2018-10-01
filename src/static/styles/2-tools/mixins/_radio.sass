@@ -1,0 +1,40 @@
+// html structure:
+
+//	<div class="radio-switch-container">
+//		<span>Title of radio</span>
+//		<div class="radio-switch">
+//			<input type="radio" id="radio-id">
+//			<label for="radio-id"></label>
+//		</div>
+//	</div>
+
+// sass usage:
+
+//	.radio-switch-container
+//		+radio-switch
+
+
+=radio-switch($switch-heigth: 36px)
+	position: relative
+
+	.radio-switch
+		display: inline-block
+
+	input,
+	input:active
+		display: none
+
+	label
+		display: inline-block
+		position: relative
+		transition: all .2s ease
+
+		&::after
+			+fa-icon($fa-check-circle-o, $switch-heigth, rgba($color-grey, .6))
+			text-shadow: 0 1px 1px $color-white
+
+		&:hover::after
+			color: $color-blue
+
+	input:checked + label::after
+		+fa-icon($fa-check-circle, $switch-heigth, $color-blue)

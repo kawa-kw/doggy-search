@@ -1,0 +1,29 @@
+// 21dev: Breakpoint standard, v. 1.0
+
+
+// $feature e.g. min-width, min-height, max-width, max-size, min-device-width ...
+// $size e.g. xs, s, m, l
+// $diff e.g. 10px, -30px (difference between standard breakpoint and wanted dimension)
+
+// breakpoint variables
+$media-xs: 320px
+$media-s: 600px
+$media-m: 900px
+$media-l: 1200px
+
+=media($size, $diff: 0, $feature: min-width)
+
+	@if $size == xs
+		$size: $media-xs
+
+	@else if $size == s
+		$size: $media-s
+
+	@else if $size == m
+		$size: $media-m
+
+	@else if $size == l
+		$size: $media-l
+
+	@media ($feature: $size + $diff)
+		@content

@@ -1,0 +1,97 @@
+=btn($color, $icon: null, $font-size: 12px, $icon-right: null)
+	position: relative
+	padding: 5px 15px
+	border-radius: 3px
+	background-color: $color
+	color: $color-white
+	text:
+		shadow: none
+		align: center
+	font:
+		size: $font-size
+		weight: 700
+	transition: all .2s ease
+
+	&:hover
+		color: $color-white
+		background-color: darken($color, 6%)
+
+	@if $icon
+		@if $icon-right
+			padding: 5px 35px 5px 15px
+
+			&::after
+				+fa-icon($icon, 14px)
+				position: absolute
+				top: 0
+				right: 0
+				bottom: 0
+				width: $font-size + 16px
+				height: $font-size + 16px
+				border-radius: 100% 10px 10px 100%
+				line-height: $font-size + 16px
+				text-align: center
+				background-color: darken($color, 10%)
+
+		@else
+			padding: 5px 15px 5px 35px
+
+			&::before
+				+fa-icon($icon, 14px)
+				position: absolute
+				top: 0
+				left: 0
+				bottom: 0
+				width: $font-size + 16px
+				height: $font-size + 16px
+				border-radius: 10px 100% 100% 10px
+				line-height: $font-size + 16px
+				text-align: center
+				background-color: darken($color, 10%)
+
+// button icon-only
+=btn-icon-only($color, $icon: $icon-variable, $font-size: 14px)
+	position: relative
+	width: $font-size + 16px
+	height: $font-size + 16px
+	border-radius: 100%
+	margin: 10px auto
+	background-color: $color
+	color: $color-white
+	text:
+		shadow: none
+		align: center
+	font:
+		size: $font-size
+		weight: 700
+	text-align: center
+	transition: all .2s ease
+
+	&:hover
+		color: $color-white
+		background-color: darken($color, 6%)
+
+	&::after
+		+fa-icon($icon, $font-size)
+
+// button disabled
+=btn-disabled
+	pointer-events: none
+	background-color: $color-disabled
+
+	&:hover
+		background-color: $color-disabled
+
+	&::before,
+	&::after
+		background-color: darken($color-disabled, 10%)
+
+// Button big
+=btn-big($color, $icon: null, $font-size: 12px)
+	+btn($color, $icon, $font-size)
+	padding: 0 36px
+
+	&::before
+		width: $font-size + 26px
+		height: 100%
+		line-height: $font-size + 36px

@@ -1,0 +1,52 @@
+/* elements.forms */
+
+input[type="text"],
+input[type="url"],
+textarea
+	display: block
+	height: auto
+	border: 0
+	border-radius: 0
+	background-color: transparent
+	box-shadow: none
+
+	&:focus,
+	&:active
+		border: none
+		box-shadow: none
+		outline: none
+
+select,
+input[type="number"]
+	display: block
+	background-color: transparent
+	box-shadow: none
+
+input[type="number"]
+	height: 40px
+
+input:disabled
+	pointer-events: none
+	opacity: .5
+
+textarea
+	resize: vertical
+
+// Input[type=range] - hides the slider so custom styles can be added
+input[type=range]
+	-webkit-appearance: none
+	width: 100%
+	background-color: transparent
+
+	&::-webkit-slider-thumb
+		-webkit-appearance: none
+
+	&:focus
+		outline: none
+
+	&::-ms-track
+		width: 100%
+		cursor: pointer
+		background: transparent
+		border-color: transparent
+		color: transparent

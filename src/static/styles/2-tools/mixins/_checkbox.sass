@@ -1,0 +1,122 @@
+// html structure:
+
+//	<div class="checkbox-switch-container">
+//		<span>Title of checkbox</span>
+//		<div class="checkbox-switch">
+//			<input type="checkbox" id="checkbox-id">
+//			<label for="checkbox-id"></label>
+//		</div>
+//	</div>
+
+// sass usage:
+
+//	.checkbox-switch-container
+//		+checkbox-switch
+
+=checkbox-switch($switch-heigth: 36px)
+	position: relative
+
+	.checkbox-switch
+		display: inline-block
+
+	input,
+	input:active
+		display: none
+
+	label
+		+font(12px, $line-height: $switch-heigth)
+		display: inline-block
+		position: relative
+		height: $switch-heigth
+		width: $switch-heigth * 2
+		border-radius: $switch-heigth / 2
+		background-color: rgba($color-cancel, .7)
+		transition: all .2s ease
+
+		&::before
+			content: ''
+			display: block
+			position: absolute
+			top: 0
+			left: 0
+			z-index: 1
+			height: $switch-heigth
+			width: $switch-heigth
+			border-radius: 100%
+			background-color: $color-white
+			box-shadow: 0 3px 3px $color-cancel, 0 0 0 2px $color-cancel
+			transition: all .2s ease
+
+		&::after
+			+fa-icon($fa-remove, $switch-heigth / 2)
+			display: block
+			position: absolute
+			top: $switch-heigth / 5
+			right: 0
+			height: 100%
+			width: $switch-heigth
+			text-align: center
+			white-space: nowrap
+			color: $color-white
+
+	input:checked + label
+		box-shadow: inset 0 0 0 20px $color-success, 0 0 0 2px lighten($color-success, 5%)
+
+		&::before
+			left: $switch-heigth
+			box-shadow: 0 0 0 2px transparent, 0 3px 3px rgba(0,0,0,.3)
+
+		&::after
+			+fa-icon($fa-check, $switch-heigth / 2)
+			left: 0
+			width: $switch-heigth
+			color: $color-white
+
+// Easy checkbox
+=front-easy-checkbox($switch-heigth: 36px)
+	position: relative
+
+	.checkbox-switch
+		display: inline-block
+
+	input,
+	input:active
+		display: none
+
+	label
+		+font(12px, $line-height: $switch-heigth)
+		display: inline-block
+		position: relative
+		height: $switch-heigth
+		width: $switch-heigth * 2
+		border: 1px solid rgba($color-white, .6)
+		border-radius: 2px
+		transition: all .2s ease
+		transform: skew(-30deg)
+		cursor: pointer
+
+		&::after
+			+fa-icon($fa-remove, $switch-heigth / 1.2)
+			display: block
+			position: absolute
+			top: $switch-heigth / 10
+			height: 100%
+			width: $switch-heigth * 2
+			text-align: center
+			white-space: nowrap
+			color: rgba($color-white, .6)
+			transform: skew(30deg)
+
+		&:hover
+			border: 1px solid $color-remove
+
+			&::after
+				+fa-icon($fa-check, $switch-heigth / 1.2)
+				color: $color-remove
+
+	input:checked + label
+		border: 1px solid $color-remove
+
+		&::after
+			+fa-icon($fa-check, $switch-heigth / 1.2)
+			color: $color-remove

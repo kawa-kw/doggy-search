@@ -1,0 +1,16 @@
+/* elements.body */
+
+$body-antialiased: true
+
+body
+	padding: 0
+	margin: 0
+
+	*
+		+font(14px, 400, 1.5, $font-sans)
+		box-sizing: border-box
+		outline: none
+
+	@if ($body-antialiased)
+		-webkit-font-smoothing: antialiased
+		-moz-osx-font-smoothing: grayscale
