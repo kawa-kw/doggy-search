@@ -2313,6 +2313,23 @@ a {
   a:hover {
     text-decoration: none; }
 
+.App {
+  text-align: center;
+  background-color: #113a5d; }
+
+.App-logo {
+  height: 80px; }
+
+.App-header {
+  height: 150px;
+  padding: 20px;
+  color: #ff7a8a;
+  background-color: #062743; }
+
+.App-intro {
+  font-size: large;
+  color: #f9f9f9; }
+
 .footer {
   padding: 10px;
   background-color: #062743; }
